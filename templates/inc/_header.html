@@ -1,0 +1,379 @@
+{% load static %}
+
+<header>
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-4">
+                    <div class="left-header clearfix">
+                        <ul>
+                            <li><p><i class="fa fa-phone" aria-hidden="true"></i>(+880) 1910 000251</p></li>
+                            <li class="hd-none"><p><i class="fa fa-clock-o" aria-hidden="true"></i>Mon-fri : 9:00-19:00</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-8">
+                    <div class="right-header">
+                        <ul>
+                            {% if request.user.is_authenticated %}
+                            <li><a href="my-account.html"><i class="fa fa-user"></i>{{user.username}}</a></li>
+                            <li><a href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart"></i>Моя карзина</a></li>
+                            <li><a href="wishlist.html"><i class="fa fa-heart"></i>My wishlist</a></li>
+                            <li><a href="checkout.html"><i class="fa fa-usd"></i>Creck out</a></li>
+                            <li><a href="{% url 'logout' %}"><i class="fa fa-lock"></i>Logout</a></li>
+                            {% else %}
+                            <li><a href="{% url 'login' %}"><i class="fa fa-user"></i>My account</a></li>
+                            <li><a href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart"></i>Моя карзина</a></li>
+                            <li><a href="wishlist.html"><i class="fa fa-heart"></i>My wishlist</a></li>
+                            <li><a href="checkout.html"><i class="fa fa-usd"></i>Creck out</a></li>
+                            <li><a href="{% url 'login' %}"><i class="fa fa-lock"></i>Login</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom header-bottom-one" id="sticky-menu">
+        <div class="container relative">
+            <div class="row">
+                <div class="col-sm-2 col-md-2 col-xs-4">
+                    <div class="logo">
+                        <a href="index.html"><img src="img/logo.png" alt="" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-10 col-xs-8 static">
+                    <div class="all-manu-area">
+                        <div class="mainmenu clearfix hidden-sm hidden-xs">
+                            <nav>
+                                <ul>
+                                    <li><a href="index.html">Home</a>
+                                        <ul>
+                                            <li><a href="index.html">Home Version One</a></li>
+                                            <li><a href="index-2.html">Home Version Two</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'product_list' %}">Shop</a>
+                                        <div class="magamenu ">
+                                            <ul class="again">
+                                                <li class="single-menu colmd4">
+                                                    <span>men’s wear</span>
+                                                    <a href="#">shirts & top</a>
+                                                    <a href="#">shoes</a>
+                                                    <a href="#">dresses</a>
+                                                    <a href="#">shwmwear</a>
+                                                </li>
+                                                <li class="single-menu colmd4">
+                                                    <span>women’s wear</span>
+                                                    <a href="#">shirts & tops</a>
+                                                    <a href="#">shoes</a>
+                                                    <a href="#">dresses</a>
+                                                    <a href="#">shwmwear</a>
+                                                </li>
+                                                <li class="single-menu colmd4">
+                                                    <span>accessories</span>
+                                                    <a href="#">sunglasses</a>
+                                                    <a href="#">leather</a>
+                                                    <a href="#">belts</a>
+                                                    <a href="#">rings</a>
+                                                </li>
+                                                <li class="single-menu colmd4 colmd5">
+                                                    <a href="#">
+                                                        <img alt="" src="img/maga-banner.png">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="{% url 'product_list' %}">Lookbook</a></li>
+                                    <li><a href="{% url 'home'%}">Блог</a></li>
+                                    <li><a href="#">Навигация</a>
+                                        <ul>
+                                            <li><a href="about-us.html">About</a></li>
+                                            <li><a href="{% url 'home'%}">Блог</a></li>
+                                            <li><a href="{{post_item.get_absolute_url}}">Blog Details</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            {% if request.user.is_authenticated %}
+                                            {% else %}
+                                            <li><a href="{% url 'login'%}">Авторизоваться</a></li>
+                                            {% endif %}
+                                            <li><a href="my-account.html">Мой аккаунт</a></li>
+                                            <li><a href="{% url 'product_list'%}">Магазин</a></li>
+                                            <li><a href="shop-list.html">Магазин детальнее</a></li>
+                                            <li><a href="{% url 'cart:cart_detail'%}">Открыть карзину</a></li>
+                                            <li><a href="single-product.html">Single Product</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about-us.html">About</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- mobile menu start -->
+                        <div class="mobile-menu-area hidden-lg hidden-md">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul>
+                                        <li><a href="index.html">Home</a>
+                                            <ul>
+                                                <li><a href="index.html">Home Version One</a></li>
+                                                <li><a href="index-2.html">Home Version Two</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="shop.html">Shop</a>
+                                            <ul>
+                                                <li><a href="#">all products</a>
+                                                    <ul>
+                                                        <li>
+                                                            <span>men’s wear</span>
+                                                            <a href="#">shirts & top</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">dresses</a>
+                                                            <a href="#">shwmwear</a>
+                                                            <a href="#">jeans</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>women’s wear</span>
+                                                            <a href="#">shirts & tops</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">dresses</a>
+                                                            <a href="#">shwmwear</a>
+                                                            <a href="#">jeans</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>accessories</span>
+                                                            <a href="#">sunglasses</a>
+                                                            <a href="#">leather</a>
+                                                            <a href="#">belts</a>
+                                                            <a href="#">rings</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">persess</a>
+                                                            <a href="#">bags</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">New products</a>
+                                                    <ul>
+                                                        <li>
+                                                            <span>men’s wear</span>
+                                                            <a href="#">shirts & top</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">jeans</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>women’s wear</span>
+                                                            <a href="#">shirts & tops</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">dresses</a>
+                                                            <a href="#">shwmwear</a>
+                                                            <a href="#">jeans</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>accessories</span>
+                                                            <a href="#">sunglasses</a>
+                                                            <a href="#">leather</a>
+                                                            <a href="#">belts</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">persess</a>
+                                                            <a href="#">bags</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">best sell</a>
+                                                    <ul>
+                                                        <li>
+                                                            <span>men’s wear</span>
+                                                            <a href="#">shirts & top</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">dresses</a>
+                                                            <a href="#">shwmwear</a>
+                                                            <a href="#">jeans</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>accessories</span>
+                                                            <a href="#">sunglasses</a>
+                                                            <a href="#">leather</a>
+                                                            <a href="#">belts</a>
+                                                            <a href="#">rings</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">persess</a>
+                                                            <a href="#">bags</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">features products</a>
+                                                    <ul>
+                                                        <li>
+                                                            <span>men’s wear</span>
+                                                            <a href="#">shirts & top</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>women’s wear</span>
+                                                            <a href="#">shirts & tops</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">dresses</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>accessories</span>
+                                                            <a href="#">sunglasses</a>
+                                                            <a href="#">leather</a>
+                                                            <a href="#">belts</a>
+                                                            <a href="#">rings</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">persess</a>
+                                                            <a href="#">bags</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">popular products</a>
+                                                    <ul>
+                                                        <li>
+                                                            <span>men’s wear</span>
+                                                            <a href="#">shirts & top</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">dresses</a>
+                                                            <a href="#">jeans</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">jacket</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>women’s wear</span>
+                                                            <a href="#">shirts & tops</a>
+                                                            <a href="#">shoes</a>
+                                                            <a href="#">dresses</a>
+                                                        </li>
+                                                        <li>
+                                                            <span>accessories</span>
+                                                            <a href="#">sunglasses</a>
+                                                            <a href="#">leather</a>
+                                                            <a href="#">belts</a>
+                                                            <a href="#">rings</a>
+                                                            <a href="#">sweaters</a>
+                                                            <a href="#">persess</a>
+                                                            <a href="#">bags</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="shop.html">Lookbook</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="#">Pages</a>
+                                            <ul>
+                                                <li><a href="about-us.html">About</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="login.html">Login</a></li>
+                                                <li><a href="my-account.html">My Account</a></li>
+                                                <li><a href="shop.html">shop</a></li>
+                                                <li><a href="shop-list.html">Shop List</a></li>
+                                                <li><a href="shopping-cart.html">Shopping-Cart</a></li>
+                                                <li><a href="single-product.html">Single Product</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="about-us.html">About</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- mobile menu end -->
+                        <div class="right-header re-right-header">
+                            <ul>
+                                <li class="re-icon tnm"><i class="fa fa-search" aria-hidden="true"></i>
+                                    <form method="get" id="searchform" action="#">
+                                        <input type="text" value="" name="s" id="ws" placeholder="Search product..." />
+                                        <button type="submit"><i class="pe-7s-search"></i></button>
+                                    </form>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'cart:cart_detail' %}">
+                                        
+                                            <i class="fa fa-shopping-cart"></i>
+                                            {% with total_items=cart|length %}
+                                                {% if cart|length > 0 %}
+                                                    <span class="color1">{{ total_items }}</span>
+                                                {% else %}
+                                                {% endif %}
+
+                                            {% endwith %}
+                                    </a>
+                                    <ul class="drop-cart">
+                                        <li>
+                                            {% with total_items=cart|length %}
+                                                {% if cart|length > 0 %}
+
+                                                {% for item in cart %}
+                                                    {% with product=item.product %}
+                                                    В корзине: {{ total_items }} предмет(а) 
+                                                    <a  href="{% url 'cart:cart_detail' %}" style="width: auto;  height : 62px;" height = auto;>
+                                                        <img style="width: auto; height: 100%;" src="{% if product.photo %}{{ product.photo.url }}
+                                                        {% else %}{% static 'img/products/15.jpg' %}{% endif %}" alt="" /></a>
+                                                    <div class="add-cart-text">
+                                                        <p><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></p>
+                                                        <p>{{ item.price }} RUB X {{ item.quantity }}</p>
+                                                        <!-- <span>Color : Blue</span>
+                                                        <span>Size   : SL</span> -->
+                                                    </div>
+                                                    <div class="pro-close">
+                                                        <a class="" href="{% url 'cart:cart_remove' product.id%}">
+                                                            <i class="pe-7s-close"></i>
+                                                        </a>
+                                                    </div>
+                                                    {% if cart.coupon %}
+                                                    "{{ cart.coupon.code }}" купон
+                                                    ({{ cart.coupon.discount }}% off)
+                                                
+                                                    {% endif %}
+                                                    <li class="total-amount clearfix">
+                                                        <span class="floatleft">Всего:</span>
+                                                        <span class="floatright"><strong>= {{ cart.get_total_price_after_discount|floatformat:"2" }} RUB</strong></span>
+                                                    </li>
+                                                    {% endwith %}
+                                                {% endfor %}
+
+
+                                                {% else %}
+                                                    Kорзина пуста.
+                                                {% endif %}
+
+                                            {% endwith %}
+                                        
+                                        </li>
+                                        <li>
+                                            <div class="goto text-center">
+                                                <a href="{% url 'cart:cart_detail' %}"><strong>Перейти в корзину &nbsp;<i class="pe-7s-angle-right"></i></strong></a>
+                                            </div>
+                                        </li>
+                                        <li class="checkout-btn text-center">
+                                            <a href="checkout.html">Оформить заказ</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,12 @@
+<div class="zo-recent-posts2">
+    <h3 class="wg-title">ПОПУЛЯРНЫЕ ПОСТЫ</h3>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+
+
+    </ul>
+</div>

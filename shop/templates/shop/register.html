@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+<!-- pages-title-start -->
+<section class="contact-img-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="con-text">
+					<h2 class="page-title">РЕГИСТРАЦИЯ</h2>
+					<p><a href="{% url 'home' %}">Home</a> | Register</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- pages-title-end -->
+<!-- login content section start -->
+<div class="login-area">
+	<div class="container">
+		<div class="row my-center">
+			<div class="col-md-6 col-xs-12">
+				<div class="tb-login-form res">
+					<h5 class="tb-title">Create a new account</h5>
+					<p>Hello, Welcome your to account</p>
+					<form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.non_field.errors }}	     
+                        {{ form.as_p }}
+						<p class="login-submit5 ress">
+							<input value="SignUp" class="button-primary" type="submit">
+						</p>
+					</form>
+					<div class="tb-info-login ">
+						<h5 class="tb-title4">SignUp today and you'll be able to:</h5>
+						<ul>
+							<li>Speed your way through the checkout.</li>
+							<li>Track your orders easily.</li>
+							<li>Keep a record of all your purchases.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- login  content section end -->
+
+<!-- brand section start -->
+<section class="section-padding-top">
+	<div class="brand-logo">
+		<div class="barnd-bg">
+			<div class="container">
+				<div class="row text-center">
+					<div id="brand-logo" class="re-owl-carousel21 owl-carousel product-slider owl-theme">
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/1.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/2.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/3.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/4.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/5.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/6.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/1.png" alt="" /></a>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="single-brand">
+								<a href="#"><img src="img/brand/3.png" alt="" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- brand section end -->
+<!-- service section start -->
+<section class="re-section-padding">
+	<div class="service section-padding">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-xs-12 col-sm-4">
+					<div class="single-service">
+						<i class="pe-7s-plane"></i>
+						<h4>Free Shipping</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<div class="single-service res-single">
+						<i class="pe-7s-headphones"></i>
+						<h4>Customer Support</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<div class="single-service">
+						<i class="pe-7s-refresh"></i>
+						<h4>15 days money back</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- service section end -->
+
+
+{% endblock %}

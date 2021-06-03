@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+<!-- pages-title-start -->
+<section class="contact-img-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="con-text">
+					<h2 class="page-title">Авторизация</h2>
+					<p><a href="{% url 'home' %}">Home</a> | Login</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- pages-title-end -->
+<!-- login content section start -->
+<div class="login-area">
+	<div class="container">
+		<div class="row my-center"  >
+			<div class="col-md-6 col-xs-12 ">
+				<div class="tb-login-form ">
+					<h5 class="tb-title">Login</h5>
+					<p>Hello, Welcome your to account</p>
+					<div class="tb-social-login">
+						<a class="tb-facebook-login" href="#">
+							<i class="fa fa-facebook"></i>
+							Sign In With Facebook
+						</a>
+						<a class="tb-twitter-login res" href="#">
+							<i class="fa fa-twitter"></i>
+							Sign In With Twitter
+						</a>
+					</div>
+					<form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.non_field.errors }}	     
+                        {{ form.as_p }}
+						<!-- <p class="checkout-coupon top log a-an">
+							<label class="l-contact">
+								Email Address
+								<em>*</em>
+							</label>
+							<input type="email">
+						</p>
+						<p class="checkout-coupon top-down log a-an">
+							<label class="l-contact">
+								Password
+								<em>*</em>
+							</label>
+							<input type="password">
+						</p> -->
+						<div class="forgot-password1">
+							<label class="inline2">
+								<input type="checkbox" name="rememberme7">
+								Remember me! <em>*</em>
+							</label>
+							<a class="forgot-password" href="{% url 'register' %}">register </a>
+							<a class="forgot-password" href="#"> Forgot Your password?  /</a>
+							
+
+							
+						</div>
+						<p class="login-submit5">
+							<input class="button-primary" type="submit" value="login">
+						</p>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- login  content section end -->
+
+
+
+
+{% endblock %}

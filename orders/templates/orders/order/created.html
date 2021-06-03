@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+<!-- {% block title %}
+ Thank you
+{% endblock %} -->
+{% block content %}
+<section class="contact-img-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="con-text">
+                    <h2 class="page-title">Thank you</h2>
+                    <p><a href="{% url 'home' %}">Home</a> | Shopping Cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="message-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="check">
+                    <h2>Thank you</h2>
+                    <p>Ваш заказ был завершен успешно. Номер вашего заказа:
+                     <strong>{{ order.id }}</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
